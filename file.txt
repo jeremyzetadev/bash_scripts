@@ -1,0 +1,5 @@
+apple, book, cat
+dad, food, girl
+god, hey, linux
+out, owl, rice
+say, toy, zebra
