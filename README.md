@@ -31,4 +31,4 @@
 <code>ps -ef | awk '{ if($NF == "/bin/usr") print $0}'                    -> print line if last column is /bin/usr</code></br>
 <code>awk '{print substr($0, 4)}' filetest.txt                            -> print line starting at index4</code></br></br>
 
-<code>find . -type f -exec sh -c 'echo -n "{}: "; wc -m < "$0"' {} \;     -> number of characters in each file within a dir</code></br></br>
+<code>find . -type f -exec sh -c 'echo -n "{}: "; wc -m < "$0"' {} \;</code>     -> number of characters in each file within a dir</br></br>
