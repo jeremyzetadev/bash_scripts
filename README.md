@@ -26,7 +26,9 @@
 <code>awk -F ":" '{print $1"\t"$6"\t"$7}' /etc/passwd                     -> prints first, sixth, seventh column</code></br>
 <code>awk -F 'BEGIN{FS=":"; OFS="-"} {print $1"\t"$6"\t"$7}' /etc/passwd  -> separtor of : replace with - column</code></br>
 <code>awk -F "/" '/^\// {print $NF}' /etc/shells                           -> starts with / ※/^\//※ and print last field</code><br>
-<code>df awk '/\/dev\loop/ {print $1"\t"$2 + $3}' /etc/shells              -> lines with /dev /loop print column1 add col2 & col3</code><br>
-<code>awk 'length($0) > 7' /etc/shells                                    -> print if whole line > 7</code><br>
-<code>ps -ef | awk '{ if($NF == "/bin/usr") print $0}'                    -> print line if last column is /bin/usr</code><br>
-<code>awk '{print substr($0, 4)}' filetest.txt                            -> print line starting at index4</code><br>
+<code>df awk '/\/dev\loop/ {print $1"\t"$2 + $3}' /etc/shells              -> lines with /dev /loop print column1 add col2 & col3</code></br>
+<code>awk 'length($0) > 7' /etc/shells                                    -> print if whole line > 7</code></br>
+<code>ps -ef | awk '{ if($NF == "/bin/usr") print $0}'                    -> print line if last column is /bin/usr</code></br>
+<code>awk '{print substr($0, 4)}' filetest.txt                            -> print line starting at index4</code></br></br>
+
+<code>find . -type f -exec sh -c 'echo -n "{}: "; wc -m < "$0"' {} \;     -> number of characters in each file within a dir</code></br></br>
