@@ -134,7 +134,7 @@ alias jp7='cd ~/Documents/SampleProjects/CPP_OpenGL_Practice2/'
 alias jp8='cd /mnt/c/Users/Senpai/Documents/src/'
 alias jp9='cd /mnt/c/Users/Senpai/Desktop/Practice'
 alias jpsh='cd ~/Documents/SHFiles/'
-alias o='nvim ~/Documents/SampleProjects/C_SDL2_Samples/sdl_3DRender/main.c'
+alias o='cd ~/Documents/SampleProjects/C_SDL2_Samples/sdl_3DRender/; nvim main.c;' 
 
 alias cpwd="pwd | xclip && echo 'pwd copied to clipboard'"
 # Generated for envman. Do not edit.
