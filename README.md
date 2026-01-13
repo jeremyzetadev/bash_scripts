@@ -32,4 +32,6 @@
 <code>awk '{print substr($0, 4)}' filetest.txt                            -> print line starting at index4</code></br></br>
 
 <code>find . -type f -exec sh -c 'echo -n "{}: "; wc -m < "$0"' {} backslash;</code>     -> number of characters in each file within a dir</br>
-<code>awk -F ":" '{sum+= $2} END {print sum}' dump.txt</code>                            -> sum number of characters
+<code>awk -F ":" '{sum+= $2} END {print sum}' dump.txt</code>                            -> sum number of characters</br>
+<code>grep 'export to' >> filename.txt</code>                                            -> get lines for 'export to' string</br>
+<code>| awk -F 'export to' '{print $2}' filename.txt | awk '{print $1}'</code>  -> get words after 'export to' | then get first word</br>                     
