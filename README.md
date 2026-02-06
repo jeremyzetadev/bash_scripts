@@ -34,4 +34,9 @@
 <code>find . -type f -exec sh -c 'echo -n "{}: "; wc -m < "$0"' {} backslash;</code>     -> number of characters in each file within a dir</br>
 <code>awk -F ":" '{sum+= $2} END {print sum}' dump.txt</code>                            -> sum number of characters</br></br>
 <code>grep 'export to' filesource.txt >> filename.txt</code>                                            -> get lines for 'export to' string</br>
-<code>awk -F 'export to' '{print $2}' filename.txt | awk '{print $1}'</code>  -> get words after 'export to' | then get first word</br>                     
+<code>awk -F 'export to' '{print $2}' filename.txt | awk '{print $1}'</code>  -> get words after 'export to' | then get first word</br>         
+</br></br>
+%%%%%%%%%%%%%%%%%%%%%%%%%%% PIPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</br>
+<code>find . -name "Filename*" -print (filename find in directory)</code>   </br>
+<code>find . -name "Filename*" -print | xargs -wc l</code>   </br>
+<code>rg -Hni "textfind" -C 10 | rg -Hni "nearTextfind" | awk '{print substr($1, 1, 15}' | uniq | sort</code>   </br>
