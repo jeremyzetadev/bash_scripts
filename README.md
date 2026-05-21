@@ -40,3 +40,5 @@
 <code>find . -name "Filename*" -print (filename find in directory)</code>   </br>
 <code>find . -name "Filename*" -print | xargs -wc l</code>   </br>
 <code>rg -Hni "textfind" -C 10 | rg -Hni "nearTextfind" | awk '{print substr($1, 1, 15}' | uniq | sort</code>   </br>
+%%%%%%%%%%%%%%%%%%%%%%%%%%% rg + regex + piping %%%%%%%%%%%%%%%%%%%</br>
+<code>rg frontchar...endchar filename -C 30 | rg -n nearsearchtext -C 30 | rg frontchar...endchar</code> </br>
