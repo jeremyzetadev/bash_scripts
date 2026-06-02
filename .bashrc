@@ -143,3 +143,9 @@ alias cpwd="pwd | xclip && echo 'pwd copied to clipboard'"
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# for japanese setup (sometimes terminal show garble if you swap the file to utf8 it will be ok)
+export LANG = ja_JP.UTF-8
+export LC_ALL = ja_JP.UTF-8
+# sudo locale-gen
+# sudo update-locale LANG=ja_jp.UTF-8
