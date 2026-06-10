@@ -149,3 +149,33 @@ export LANG = ja_JP.UTF-8
 export LC_ALL = ja_JP.UTF-8
 # sudo locale-gen
 # sudo update-locale LANG=ja_jp.UTF-8
+
+# search pattern in files
+spf(){
+    local patterns
+    local files
+    local col_width=20
+    # $1 = space-separated patterns
+    # $1 = space-separated files
+    read -r -a patterns <<< "$1"
+    read -r -a files <<< "$2"
+    # header: first empty cell, then file names
+    printf "%-${col_width}s" ""
+    for f in "${files[@]}"; do
+        printf "%-${col_width}s" "$f"
+    done
+    printf "\n"
+    # each pattern becomes a row
+    for p in "${patterns[@]}"; do
+        printf "%-${col_width}s" "$p"
+        for f in "${files[@]}"; do
+            if rg -q --fixed-strings "$p" "$f"; then
+                printf "%-${col_width}s" "YES"
+            else
+                printf "%-${col_width}s" "NO"
+            fi
+        done
+        printf "\n"
+    done
+}
+alias spf=spf
