@@ -35,10 +35,15 @@
 <code>awk -F ":" '{sum+= $2} END {print sum}' dump.txt</code>                            -> sum number of characters</br></br>
 <code>grep 'export to' filesource.txt >> filename.txt</code>                                            -> get lines for 'export to' string</br>
 <code>awk -F 'export to' '{print $2}' filename.txt | awk '{print $1}'</code>  -> get words after 'export to' | then get first word</br>         
-</br></br>
+</br>
 %%%%%%%%%%%%%%%%%%%%%%%%%%% PIPING %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%</br>
 <code>find . -name "Filename*" -print (filename find in directory)</code>   </br>
 <code>find . -name "Filename*" -print | xargs -wc l</code>   </br>
 <code>rg -Hni "textfind" -C 10 | rg -Hni "nearTextfind" | awk '{print substr($1, 1, 15}' | uniq | sort</code>   </br>
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%% rg + regex + piping %%%%%%%%%%%%%%%%%%%</br>
 <code>rg frontchar...endchar filename -C 30 | rg -n nearsearchtext -C 30 | rg frontchar...endchar</code> </br>
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%% custom command + piping %%%%%%%%%%%%%%%%%%%</br>
+<code>searchname="searchname1 searchname2 searchname3"</code></br>
+<code>spf "$searchname" $(rg -l searchnametogetfilepath | tr -s '\0' '\n')</code></br>
