@@ -179,3 +179,13 @@ spf(){
     done
 }
 alias spf=spf
+
+gitlog(){
+	local mybranch="$1"
+	local commiter="$2"
+	local sincedate="$3"
+
+	git log "$mybranch" --since="sincedate" --format="%ad %an "%h %s" --date=short |
+	awk -v author="$commiter" '$0 ~ author { print NR-1 " commit-distance:\t" $0 }'
+}
+alias gitlog=gitlog
