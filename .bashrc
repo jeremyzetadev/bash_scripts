@@ -189,3 +189,25 @@ gitlog(){
 	awk -v author="$commiter" '$0 ~ author { print NR-1 " commit-distance:\t" $0 }'
 }
 alias gitlog=gitlog
+
+vba_build(){
+	rm Game.ini
+	cp Path1/Game.ini Path2/Game.ini
+
+	rm Game.vbp
+	cp Path1/Game.vbp Path2/Game.vbp
+	[ -f Build.log ] && rm Build.log
+
+	# The Game.vbp here has CompilationType=1 it runs silently fast but typically CompilationType=0 is use when opening vbp to IDE
+	# The Game.vbp here has removed referenced to be runnable
+    cmd.exe /c "C:\Program Files(x86)\Microsoft Visual Studio\VB98\VB6.EXE" /make "Game.vbp" /out "Build.log"
+
+	# iconv -f CP932 -t UTF-8 Build.log > tmp.log && mv tmp.log Build.log  #change shiftjis to utf
+	if grep -qi "Build Successful" Build.log; then
+		echo "Build OK"
+	else
+		echo "Build failed"
+		cat Build.log
+	fi
+}
+alias vba_build=vba_build
